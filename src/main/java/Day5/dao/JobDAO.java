@@ -5,7 +5,7 @@ import Day5.models.Jobs;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class JobDAO {
+public class  JobDAO {
 
     private static final String URL = "jdbc:sqlite:C:\\Users\\dev\\IdeaProjects\\HrApiDay05\\src\\main\\resources\\hr.db";
     private static final String SELECT_ALL_JOBS = "select * from jobs";

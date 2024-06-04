@@ -8,7 +8,7 @@ import Day5.models.Jobs;
 import java.util.ArrayList;
 
 @Path("jobs")
-public class JobController {
+public class  JobController {
 
 
    JobDAO dao = new JobDAO();

@@ -3,7 +3,7 @@ package Day5.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Jobs {
+public class  Jobs {
     private int job_id;
     private String job_title;
     private double min_salary;
