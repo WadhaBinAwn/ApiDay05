@@ -3,13 +3,13 @@ package Day5.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Jobs5 {
+public class  Jobs {
     private int job_id;
     private String job_title;
     private double min_salary;
     private double max_salary;
 
-    public Jobs5(int job_id, String job_title, double min_salary, double max_salary){
+    public Jobs(int job_id, String job_title, double min_salary, double max_salary){
         this.job_id=job_id;
         this.job_title=job_title;
         this.max_salary=max_salary;
@@ -17,7 +17,7 @@ public class Jobs5 {
     }
 
 
-    public Jobs5(ResultSet rs) throws SQLException {
+    public Jobs(ResultSet rs) throws SQLException {
         job_id=rs.getInt(1);
         job_title=rs.getString(2);
         max_salary=rs.getDouble(3);

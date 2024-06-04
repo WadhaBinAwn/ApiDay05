@@ -1,11 +1,11 @@
 package Day5.dao;
 
-import Day5.models.Jobs5;
+import Day5.models.Jobs;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class JobDAO5 {
+public class  JobDAO {
 
     private static final String URL = "jdbc:sqlite:C:\\Users\\dev\\IdeaProjects\\HrApiDay05\\src\\main\\resources\\hr.db";
     private static final String SELECT_ALL_JOBS = "select * from jobs";
@@ -14,7 +14,7 @@ public class JobDAO5 {
     private static final String UPDATE_JOB = "update jobs set job_title = ?, min_salary = ?, max_salary = ? where job_id = ?";
     private static final String DELETE_JOB = "delete from jobs where job_id = ?";
 
-    public void insertJob(Jobs5 j) throws SQLException, ClassNotFoundException {
+    public void insertJob(Jobs j) throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         Connection conn = DriverManager.getConnection(URL);
         PreparedStatement st = conn.prepareStatement(INSERT_JOB);
@@ -28,7 +28,7 @@ public class JobDAO5 {
 
 
 
-    public void updateJob(Jobs5 j) throws SQLException, ClassNotFoundException {
+    public void updateJob(Jobs j) throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         Connection conn = DriverManager.getConnection(URL);
         PreparedStatement st = conn.prepareStatement(UPDATE_JOB);
@@ -47,28 +47,28 @@ public class JobDAO5 {
         st.executeUpdate();
     }
 
-    public Jobs5 selectJob(int job_id) throws SQLException, ClassNotFoundException {
+    public Jobs selectJob(int job_id) throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         Connection conn = DriverManager.getConnection(URL);
         PreparedStatement st = conn.prepareStatement(SELECT_ONE_JOB);
         st.setInt(1, job_id);
         ResultSet rs = st.executeQuery();
         if(rs.next()) {
-            return new Jobs5(rs);
+            return new Jobs(rs);
         }
         else {
             return null;
         }
     }
 
-    public ArrayList<Jobs5> selectAllJobs() throws SQLException, ClassNotFoundException {
+    public ArrayList<Jobs> selectAllJobs() throws SQLException, ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
         Connection conn = DriverManager.getConnection(URL);
         PreparedStatement st = conn.prepareStatement(SELECT_ALL_JOBS);
         ResultSet rs = st.executeQuery();
-        ArrayList<Jobs5> jobs = new ArrayList<>();
+        ArrayList<Jobs> jobs = new ArrayList<>();
         while (rs.next()) {
-            jobs.add(new Jobs5(rs));
+            jobs.add(new Jobs(rs));
         }
 
         return jobs;
