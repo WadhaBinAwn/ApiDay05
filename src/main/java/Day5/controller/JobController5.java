@@ -1,22 +1,22 @@
 package Day5.controller;
 
-import Day5.dao.JobDAO;
+import Day5.dao.JobDAO5;
 import jakarta.ws.rs.*;
-import Day5.models.Jobs;
+import Day5.models.Jobs5;
 
 
 import java.util.ArrayList;
 
 @Path("jobs")
-public class  JobController {
+public class JobController5 {
 
 
-   JobDAO dao = new JobDAO();
+   JobDAO5 dao = new JobDAO5();
 
 
 
     @GET
-    public ArrayList<Jobs> getAllJobs() {
+    public ArrayList<Jobs5> getAllJobs() {
 
         try {
             return dao.selectAllJobs();
@@ -27,7 +27,7 @@ public class  JobController {
 
     @GET
     @Path("{JobId}")
-    public Jobs getDepartment(@PathParam("JobId") int JobId) {
+    public Jobs5 getDepartment(@PathParam("JobId") int JobId) {
 
         try {
             return dao.selectJob(JobId);
@@ -48,7 +48,7 @@ public class  JobController {
     }
 
     @POST
-    public void insertJob(Jobs jobs) {
+    public void insertJob(Jobs5 jobs) {
 
         try {
             dao.insertJob(jobs);
@@ -59,7 +59,7 @@ public class  JobController {
 
     @PUT
     @Path("{JobId}")
-    public void updateJob(@PathParam("JobId") int JobId, Jobs jobs) {
+    public void updateJob(@PathParam("JobId") int JobId, Jobs5 jobs) {
 
         try {
             jobs.setJob_id(JobId);
