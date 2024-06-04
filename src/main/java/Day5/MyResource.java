@@ -1,4 +1,4 @@
-package org.example;
+package Day5;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
